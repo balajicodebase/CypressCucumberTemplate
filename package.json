@@ -1,0 +1,31 @@
+{
+  "name": "cypressautomatione2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/cypress run",
+    "dashboard": "npm run test -- --headed --browser chrome --record --key aef49338-10b3-470a-87cd-05e3fb278a94",
+    "singleSpec": "npm run test -- --spec \"cypress/integration/examples/Test1.js\"",
+    "multipleSpec": "npm run test -- --spec \"cypress/integration/examples/Test1.js,cypress/integration/examples/Test2.js\"",
+    "GreenKart": "npm run test -- --spec \"cypress/integration/examples/*.js\" --headed --browser chrome --record --key aef49338-10b3-470a-87cd-05e3fb278a94",
+    "RunCucumberTags": "npx cypress-tags run -e TAGS=\"@smoke\" --headed -b chrome"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "author": "Balaji",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.2.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-iframe": "^1.0.1",
+    "multiple-cucumber-html-reporter": "^1.21.6"
+  }
+}
